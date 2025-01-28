@@ -1728,8 +1728,38 @@
       }
     }
   },
-  
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "iconType": "material",
+      "icon": "apartment"
+    },
 
+    "title": {
+      "type": "text",
+      "data": "Mirai StateProvider",
+      "style": {
+        "fontSize": 21
+      }
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A Material Design Mirai StateProvider widget",
+      "style": {
+        "fontSize": 12
+      }
+    },
+    "isThreeLine": true,
+    "onTap": {
+      "actionType": "navigate",
+      "navigationStyle": "push",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/state_provider_example.json"
+      }
+    }
+  },
   {
     "type": "sizedBox",
     "height": 24.0

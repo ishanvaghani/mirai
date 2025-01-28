@@ -1,0 +1,70 @@
+{
+    "type": "scaffold",
+    "appBar": {
+        "type": "appBar",
+        "title": {
+            "type": "text",
+            "data": "Text"
+        }
+    },
+    "body": {
+        "type": "center",
+        "child": {
+            "type": "stateProvider",
+            "states": [
+                {
+                    "key": "count",
+                    "value": 1
+                },
+                {
+                    "key": "isActive",
+                    "value": true
+                }
+            ],
+            "child": {
+                "type": "column",
+                "mainAxisAlignment": "start",
+                "crossAxisAlignment": "center",
+                "children": [
+                    {
+                        "key": "count",
+                        "type": "text",
+                        "align": "center",
+                        "style": {
+                            "fontSize": 23,
+                            "fontWeight": "w600"
+                        }
+                    },
+                    {
+                        "type": "filledButton",
+                        "child": {
+                            "type": "text",
+                            "data": "BUTTON"
+                        },
+                        "style": {
+                            "padding": {
+                                "top": 8,
+                                "left": 12,
+                                "right": 12,
+                                "bottom": 8
+                            },
+                            "shape": {
+                                "borderRadius": {
+                                    "topLeft": 8,
+                                    "topRight": 8,
+                                    "bottomLeft": 8,
+                                    "bottomRight": 8
+                                }
+                            }
+                        },
+                        "onPressed": {
+                            "actionType": "updateState",
+                            "key": "count",
+                            "mutation": "${value} + 1"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

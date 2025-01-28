@@ -10,11 +10,13 @@ part 'mirai_elevated_button.g.dart';
 @freezed
 class MiraiElevatedButton with _$MiraiElevatedButton {
   const factory MiraiElevatedButton({
+    String? key,
     Map<String, dynamic>? onPressed,
     MiraiButtonStyle? style,
     @Default(false) bool autofocus,
     @Default(Clip.none) Clip clipBehavior,
     required Map<String, dynamic> child,
+    Map<String, dynamic>? processing,
   }) = _MiraiElevatedButton;
 
   factory MiraiElevatedButton.fromJson(Map<String, dynamic> json) =>

@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:mirai/src/framework/framework.dart';
+import 'package:mirai/src/parsers/mirai_state_provider/mirai_state_provider_scope.dart';
 import 'package:mirai/src/parsers/mirai_text/mirai_text.dart';
 import 'package:mirai/src/parsers/mirai_text_style/mirai_text_style.dart';
 import 'package:mirai/src/utils/color_utils.dart';
@@ -16,11 +17,22 @@ class MiraiTextParser extends MiraiParser<MiraiText> {
   @override
   String get type => WidgetType.text.name;
 
+  String? _getText(BuildContext context, MiraiText model) {
+    if (model.key != null) {
+      final stateProvider = MiraiStateProviderScope.of(context);
+      return stateProvider?.states.firstWhere(
+        (element) => element['key'] == model.key,
+      )['value'].toString();
+    } else {
+      return model.data;
+    }
+  }
+
   @override
   Widget parse(BuildContext context, MiraiText model) {
     return Text.rich(
       TextSpan(
-        text: model.data,
+        text: _getText(context, model),
         children: model.children
             .map(
               (child) => TextSpan(

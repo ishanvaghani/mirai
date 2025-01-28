@@ -8,7 +8,8 @@ part of 'mirai_text.dart';
 
 _$MiraiTextImpl _$$MiraiTextImplFromJson(Map<String, dynamic> json) =>
     _$MiraiTextImpl(
-      data: json['data'] as String,
+      key: json['key'] as String?,
+      data: json['data'] as String?,
       children: (json['children'] as List<dynamic>?)
               ?.map((e) => MiraiTextSpan.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -30,6 +31,7 @@ _$MiraiTextImpl _$$MiraiTextImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$MiraiTextImplToJson(_$MiraiTextImpl instance) =>
     <String, dynamic>{
+      'key': instance.key,
       'data': instance.data,
       'children': instance.children,
       'style': instance.style,

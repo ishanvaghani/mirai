@@ -95,6 +95,7 @@ class Mirai {
     const MiraiAspectRatioParser(),
     const MiraiFittedBoxParser(),
     const MiraiLimitedBoxParser(),
+    const MiraiStateProviderParser()
   ];
 
   static final _actionParsers = <MiraiActionParser>[
@@ -106,6 +107,8 @@ class Mirai {
     const MiraiGetFormValueParser(),
     const MiraiFormValidateParser(),
     const MiraiSnackBarParser(),
+    const MiraiUpdateStateParser(),
+    const MiraiMultiActionParser()
   ];
 
   static Future<void> initialize({

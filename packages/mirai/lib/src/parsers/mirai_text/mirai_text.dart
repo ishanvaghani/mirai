@@ -10,7 +10,8 @@ part 'mirai_text.g.dart';
 @freezed
 class MiraiText with _$MiraiText {
   const factory MiraiText({
-    required String data,
+    String? key,
+    String? data,
     @Default([]) List<MiraiTextSpan> children,
     MiraiTextStyle? style,
     TextAlign? textAlign,

@@ -20,11 +20,13 @@ MiraiElevatedButton _$MiraiElevatedButtonFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MiraiElevatedButton {
+  String? get key => throw _privateConstructorUsedError;
   Map<String, dynamic>? get onPressed => throw _privateConstructorUsedError;
   MiraiButtonStyle? get style => throw _privateConstructorUsedError;
   bool get autofocus => throw _privateConstructorUsedError;
   Clip get clipBehavior => throw _privateConstructorUsedError;
   Map<String, dynamic> get child => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get processing => throw _privateConstructorUsedError;
 
   /// Serializes this MiraiElevatedButton to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,11 +45,13 @@ abstract class $MiraiElevatedButtonCopyWith<$Res> {
       _$MiraiElevatedButtonCopyWithImpl<$Res, MiraiElevatedButton>;
   @useResult
   $Res call(
-      {Map<String, dynamic>? onPressed,
+      {String? key,
+      Map<String, dynamic>? onPressed,
       MiraiButtonStyle? style,
       bool autofocus,
       Clip clipBehavior,
-      Map<String, dynamic> child});
+      Map<String, dynamic> child,
+      Map<String, dynamic>? processing});
 
   $MiraiButtonStyleCopyWith<$Res>? get style;
 }
@@ -67,13 +71,19 @@ class _$MiraiElevatedButtonCopyWithImpl<$Res, $Val extends MiraiElevatedButton>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? key = freezed,
     Object? onPressed = freezed,
     Object? style = freezed,
     Object? autofocus = null,
     Object? clipBehavior = null,
     Object? child = null,
+    Object? processing = freezed,
   }) {
     return _then(_value.copyWith(
+      key: freezed == key
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String?,
       onPressed: freezed == onPressed
           ? _value.onPressed
           : onPressed // ignore: cast_nullable_to_non_nullable
@@ -94,6 +104,10 @@ class _$MiraiElevatedButtonCopyWithImpl<$Res, $Val extends MiraiElevatedButton>
           ? _value.child
           : child // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
+      processing: freezed == processing
+          ? _value.processing
+          : processing // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -121,11 +135,13 @@ abstract class _$$MiraiElevatedButtonImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {Map<String, dynamic>? onPressed,
+      {String? key,
+      Map<String, dynamic>? onPressed,
       MiraiButtonStyle? style,
       bool autofocus,
       Clip clipBehavior,
-      Map<String, dynamic> child});
+      Map<String, dynamic> child,
+      Map<String, dynamic>? processing});
 
   @override
   $MiraiButtonStyleCopyWith<$Res>? get style;
@@ -144,13 +160,19 @@ class __$$MiraiElevatedButtonImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? key = freezed,
     Object? onPressed = freezed,
     Object? style = freezed,
     Object? autofocus = null,
     Object? clipBehavior = null,
     Object? child = null,
+    Object? processing = freezed,
   }) {
     return _then(_$MiraiElevatedButtonImpl(
+      key: freezed == key
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String?,
       onPressed: freezed == onPressed
           ? _value._onPressed
           : onPressed // ignore: cast_nullable_to_non_nullable
@@ -171,6 +193,10 @@ class __$$MiraiElevatedButtonImplCopyWithImpl<$Res>
           ? _value._child
           : child // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
+      processing: freezed == processing
+          ? _value._processing
+          : processing // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -179,17 +205,22 @@ class __$$MiraiElevatedButtonImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MiraiElevatedButtonImpl implements _MiraiElevatedButton {
   const _$MiraiElevatedButtonImpl(
-      {final Map<String, dynamic>? onPressed,
+      {this.key,
+      final Map<String, dynamic>? onPressed,
       this.style,
       this.autofocus = false,
       this.clipBehavior = Clip.none,
-      required final Map<String, dynamic> child})
+      required final Map<String, dynamic> child,
+      final Map<String, dynamic>? processing})
       : _onPressed = onPressed,
-        _child = child;
+        _child = child,
+        _processing = processing;
 
   factory _$MiraiElevatedButtonImpl.fromJson(Map<String, dynamic> json) =>
       _$$MiraiElevatedButtonImplFromJson(json);
 
+  @override
+  final String? key;
   final Map<String, dynamic>? _onPressed;
   @override
   Map<String, dynamic>? get onPressed {
@@ -216,9 +247,19 @@ class _$MiraiElevatedButtonImpl implements _MiraiElevatedButton {
     return EqualUnmodifiableMapView(_child);
   }
 
+  final Map<String, dynamic>? _processing;
+  @override
+  Map<String, dynamic>? get processing {
+    final value = _processing;
+    if (value == null) return null;
+    if (_processing is EqualUnmodifiableMapView) return _processing;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
   @override
   String toString() {
-    return 'MiraiElevatedButton(onPressed: $onPressed, style: $style, autofocus: $autofocus, clipBehavior: $clipBehavior, child: $child)';
+    return 'MiraiElevatedButton(key: $key, onPressed: $onPressed, style: $style, autofocus: $autofocus, clipBehavior: $clipBehavior, child: $child, processing: $processing)';
   }
 
   @override
@@ -226,6 +267,7 @@ class _$MiraiElevatedButtonImpl implements _MiraiElevatedButton {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MiraiElevatedButtonImpl &&
+            (identical(other.key, key) || other.key == key) &&
             const DeepCollectionEquality()
                 .equals(other._onPressed, _onPressed) &&
             (identical(other.style, style) || other.style == style) &&
@@ -233,18 +275,22 @@ class _$MiraiElevatedButtonImpl implements _MiraiElevatedButton {
                 other.autofocus == autofocus) &&
             (identical(other.clipBehavior, clipBehavior) ||
                 other.clipBehavior == clipBehavior) &&
-            const DeepCollectionEquality().equals(other._child, _child));
+            const DeepCollectionEquality().equals(other._child, _child) &&
+            const DeepCollectionEquality()
+                .equals(other._processing, _processing));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      key,
       const DeepCollectionEquality().hash(_onPressed),
       style,
       autofocus,
       clipBehavior,
-      const DeepCollectionEquality().hash(_child));
+      const DeepCollectionEquality().hash(_child),
+      const DeepCollectionEquality().hash(_processing));
 
   /// Create a copy of MiraiElevatedButton
   /// with the given fields replaced by the non-null parameter values.
@@ -265,15 +311,19 @@ class _$MiraiElevatedButtonImpl implements _MiraiElevatedButton {
 
 abstract class _MiraiElevatedButton implements MiraiElevatedButton {
   const factory _MiraiElevatedButton(
-      {final Map<String, dynamic>? onPressed,
+      {final String? key,
+      final Map<String, dynamic>? onPressed,
       final MiraiButtonStyle? style,
       final bool autofocus,
       final Clip clipBehavior,
-      required final Map<String, dynamic> child}) = _$MiraiElevatedButtonImpl;
+      required final Map<String, dynamic> child,
+      final Map<String, dynamic>? processing}) = _$MiraiElevatedButtonImpl;
 
   factory _MiraiElevatedButton.fromJson(Map<String, dynamic> json) =
       _$MiraiElevatedButtonImpl.fromJson;
 
+  @override
+  String? get key;
   @override
   Map<String, dynamic>? get onPressed;
   @override
@@ -284,6 +334,8 @@ abstract class _MiraiElevatedButton implements MiraiElevatedButton {
   Clip get clipBehavior;
   @override
   Map<String, dynamic> get child;
+  @override
+  Map<String, dynamic>? get processing;
 
   /// Create a copy of MiraiElevatedButton
   /// with the given fields replaced by the non-null parameter values.
